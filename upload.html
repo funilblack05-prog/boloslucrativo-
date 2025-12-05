@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolos Lucrativos - Sistema de Vendas</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container { max-width: 500px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        h1 { color: #ff1493; font-size: 28px; margin: 10px 0; }
+        .subtitle { color: #ff66b2; font-size: 18px; }
+        .card {
+            background: #111;
+            border: 2px solid #ff1493;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%; padding: 12px; margin: 8px 0;
+            background: #222; border: 1px solid #ff1493;
+            border-radius: 5px; color: white;
+        }
+        button {
+            width: 100%; padding: 15px;
+            background: #ff1493; color: white;
+            border: none; border-radius: 5px;
+            font-size: 16px; margin-top: 10px; cursor: pointer;
+        }
+        button:hover { background: #ff0066; }
+        .question {
+            background: #222; padding: 15px;
+            margin: 10px 0; border-radius: 5px;
+            cursor: pointer;
+        }
+        .answer {
+            display: none; padding: 10px;
+            background: #333; border-radius: 5px; margin-top: 5px;
+        }
+        .whatsapp-btn { background: #25D366; }
+        .whatsapp-btn:hover { background: #1da851; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>BOLOS LUCRATIVOS</h1>
+            <div class="subtitle">Sistema Completo de Vendas</div>
+        </div>
+
+        <div class="card">
+            <h2>📥 Receba o Material</h2>
+            <input type="text" id="nome" placeholder="Seu nome">
+            <input type="email" id="email" placeholder="Seu e-mail">
+            <input type="tel" id="whatsapp" placeholder="Seu WhatsApp">
+            <button onclick="enviarForm()">RECEBER AGORA</button>
+        </div>
+
+        <div class="card">
+            <h2>❓ Dúvidas Frequentes</h2>
+
+            <div class="question" onclick="mostrarResposta(1)">O que é o sistema Bolos Lucrativos?</div>
+            <div class="answer" id="resposta1">É um método completo que ensina 3 receitas premium + estratégias de venda no Instagram e para escolas.</div>
+
+            <div class="question" onclick="mostrarResposta(2)">Preciso ter experiência?</div>
+            <div class="answer" id="resposta2">Não! O sistema foi criado para iniciantes. Aprenda do zero passo a passo.</div>
+
+            <div class="question" onclick="mostrarResposta(3)">Em quanto tempo começo a vender?</div>
+            <div class="answer" id="resposta3">Muitas alunas vendem em 24-48 horas após aplicar o método.</div>
+        </div>
+
+        <button class="whatsapp-btn" onclick="abrirWhatsApp()">💬 Falar no WhatsApp Agora</button>
+    </div>
+
+    <script>
+        function enviarForm() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+
+            if(nome && email && whatsapp) {
+                window.location.href = "https://pay.kiwify.com.br/P7t5eeI";
+                abrirWhatsApp();
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        }
+
+        function mostrarResposta(num) {
+            const resposta = document.getElementById('resposta' + num);
+            if(resposta.style.display === 'block') {
+                resposta.style.display = 'none';
+            } else {
+                for(let i = 1; i <= 3; i++) {
+                    document.getElementById('resposta' + i).style.display = 'none';
+                }
+                resposta.style.display = 'block';
+            }
+        }
+
+        function abrirWhatsApp() {
+            const mensagem = encodeURIComponent('Olá! Gostaria de saber mais sobre o Sistema Bolos Lucrativos.');
+            window.open('https://wa.me/557192907400?text=' + mensagem, '_blank');
+        }
+
+        window.addEventListener('scroll', function() {
+            const btn = document.querySelector('.whatsapp-btn');
+            if(window.scrollY > 100) {
+                btn.style.position = 'fixed';
+                btn.style.bottom = '20px';
+                btn.style.right = '20px';
+                btn.style.width = 'auto';
+            } else {
+                btn.style.position = 'static';
+                btn.style.width = '100%';
+            }
+        });
+    </script>
+</body>
+</html>
